@@ -1,0 +1,5 @@
+# Create a volume called minecraft_data to persist data across containers
+docker volume create minecraft_data
+
+# Create a Minecraft server in docker using the volume and open port 25565
+docker run -d -p 25565:25565 --name minecraft-server -e EULA=TRUE -v minecraft_data:/data itzg/minecraft-server
